@@ -10,6 +10,8 @@
 		"strict": true
 	},
 	"include": [
-		"src/**/*"
+		"src/extension.ts",
+		"src/i18n.ts",
+		"src/test/extension.test.ts"
 	]
 }
