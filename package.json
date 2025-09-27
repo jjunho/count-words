@@ -4,10 +4,10 @@
   "description": "%description%",
   "repository": {
     "type": "git",
-    "url": "file:///home/jjunho/git/word-count"
+    "url": "https://github.com/jjunho/count-words.git"
   },
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.104.0"
   },
