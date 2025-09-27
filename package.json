@@ -1,7 +1,12 @@
 {
   "name": "word-and-character-count",
-  "displayName": "Word and Character Count",
-  "description": "Counts words and characters in the whole text or selection, displaying in the status bar.",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "repository": {
+    "type": "git",
+    "url": "file:///home/jjunho/git/word-count"
+  },
+  "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.104.0"
@@ -24,7 +29,7 @@
     "commands": [
       {
         "command": "word-and-character-count.helloWorld",
-        "title": "Hello World"
+        "title": "%command.helloWorld%"
       }
     ]
   },

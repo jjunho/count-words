@@ -1,0 +1,5 @@
+{
+    "displayName": "Contador de Palavras e Caracteres",
+    "description": "Conta palavras e caracteres do texto inteiro ou da seleção, exibindo no rodapé.",
+    "command.helloWorld": "Olá Mundo"
+}

@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { t } from './i18n';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -25,11 +26,13 @@ export function activate(context: vscode.ExtensionContext) {
 		} else {
 			text = doc.getText();
 		}
-		const charCount = text.length;
-		const wordCount = (text.match(/\b\w+\b/g) || []).length;
-		statusBarItem.text = `$(pencil) ${wordCount} palavras, ${charCount} caracteres`;
-		statusBarItem.tooltip = 'Contagem de palavras e caracteres (seleção ou documento)';
-		statusBarItem.show();
+	const charCount = text.length;
+	const wordCount = (text.match(/\b\w+\b/g) || []).length;
+	const wordLabel = t('words', wordCount);
+	const charLabel = t('characters', charCount);
+	statusBarItem.text = `$(pencil) ${wordCount} ${wordLabel}, ${charCount} ${charLabel}`;
+	statusBarItem.tooltip = t('tooltip');
+	statusBarItem.show();
 	}
 
 	context.subscriptions.push(

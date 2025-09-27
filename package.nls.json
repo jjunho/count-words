@@ -1,0 +1,5 @@
+{
+    "displayName": "Word and Character Count",
+    "description": "Counts words and characters in the whole text or selection, displaying in the status bar.",
+    "command.helloWorld": "Hello World"
+}
