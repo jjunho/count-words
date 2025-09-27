@@ -23,11 +23,18 @@
 
 ---
 
+
+## What's New (v0.0.2)
+
+- Multi-language i18n support: English, Spanish, Portuguese (Brazil/Portugal), French, German, Italian, Dutch, Polish, Czech, Turkish, Russian, Ukrainian, Bulgarian, Greek.
+- Comprehensive automated tests for all supported languages and pluralization.
+- Telemetry API proposal error fixed (no more test failures on push).
+
 ## Key features
 
 - Live count of words and characters for the entire document or the selected text.
 - Status bar display with readable formatting and tooltip.
-- Basic internationalization (i18n) support for English and Brazilian Portuguese.
+- Internationalization (i18n) for 14+ major languages (see below).
 - Works with any text-based language (Markdown, JavaScript, TypeScript, Python, plaintext, etc.).
 
 ## Screenshot
@@ -60,16 +67,37 @@ code --install-extension ./word-and-character-count-0.0.1.vsix
 
 The extension activates on file open or on common languages (plaintext, markdown, javascript, typescript, python, etc.).
 
+
 ## Internationalization (i18n)
 
-The extension includes a simple i18n helper that uses VS Code's `vscode.env.language` to pick translations. By default, it contains English (`en`) and Brazilian Portuguese (`pt-br`). To add more languages:
+The extension supports the following languages (auto-detected from your VS Code UI):
 
-1. Add the translation strings to `src/i18n.ts` (or a separate JSON resource if you prefer).
-2. Optionally add `package.nls.<lang>.json` files for package metadata translations.
+- English (`en`)
+- Spanish (`es`)
+- Portuguese (`pt`, `pt-br`)
+- French (`fr`)
+- German (`de`)
+- Italian (`it`)
+- Dutch (`nl`)
+- Polish (`pl`)
+- Czech (`cs`)
+- Turkish (`tr`)
+- Russian (`ru`)
+- Ukrainian (`uk`)
+- Bulgarian (`bg`)
+- Greek (`el`)
+
+To add or improve a translation:
+1. Edit `src/i18n.ts` and add/update the translation strings for your language.
+2. Optionally add `package.nls.<lang>.json` for package metadata.
 
 **Notes:**
-
 - The status bar text uses pluralization ("1 word" vs "2 words") handled by the helper in `src/i18n.ts`.
+- All i18n logic is covered by automated tests for every supported language.
+
+## Telemetry and API proposals
+
+This extension does **not** use VS Code telemetry. All tests and i18n logic are implemented without requiring the telemetry API proposal, so you will not see related errors when running or pushing.
 
 ## Development
 
