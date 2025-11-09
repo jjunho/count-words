@@ -1,171 +1,224 @@
+# Word & Character Count
 
-# Word & Character Count for VS Code
+> **Never lose track of your writing progress again.** Get instant, real-time word and character counts right in your VS Code status bar.
 
-**A lightweight VS Code extension that displays live word and character counts for your document or selection, right in the status bar.**
-
----
-
-## Table of Contents
-
-- [Word \& Character Count for VS Code](#word--character-count-for-vs-code)
-  - [Table of Contents](#table-of-contents)
-  - [Key features](#key-features)
-  - [Screenshot](#screenshot)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Internationalization (i18n)](#internationalization-i18n)
-  - [Development](#development)
-  - [Packaging \& publishing](#packaging--publishing)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Changelog](#changelog)
-  - [Acknowledgements](#acknowledgements)
+[![Version](https://img.shields.io/badge/version-0.0.2-blue.svg)](https://github.com/jjunho/count-words)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
 
+## ✨ Why You'll Love This Extension
 
-## What's New (v0.0.2)
+Writing documentation? Crafting a blog post? Meeting a character limit? This lightweight extension keeps you informed at a glance — no need to select text or run commands. Just write, and watch your counts update live in the status bar.
 
-- Multi-language i18n support: English, Spanish, Portuguese (Brazil/Portugal), French, German, Italian, Dutch, Polish, Czech, Turkish, Russian, Ukrainian, Bulgarian, Greek.
-- Comprehensive automated tests for all supported languages and pluralization.
-- Telemetry API proposal error fixed (no more test failures on push).
+### 🚀 Key Features
 
-## Key features
+- **📊 Real-Time Counting** - Instant updates as you type, no lag or delay
+- **🎯 Selection Support** - Count selected text or the entire document
+- **🌍 14+ Languages** - Automatically displays in your preferred language
+- **⚡ Lightweight** - Zero performance impact on your editor
+- **🎨 Clean Interface** - Elegant status bar display that stays out of your way
+- **📝 Universal** - Works with Markdown, code files, plain text, and more
 
-- Live count of words and characters for the entire document or the selected text.
-- Status bar display with readable formatting and tooltip.
-- Internationalization (i18n) for 14+ major languages (see below).
-- Works with any text-based language (Markdown, JavaScript, TypeScript, Python, plaintext, etc.).
+---
 
-## Screenshot
+## 📸 See It In Action
 
-<!--
-If you have a screenshot, place it in the `images/` folder and uncomment the line below:
--->
-<!-- ![Status bar shows word and character count](images/status-example.png) -->
+*Status bar (bottom right) displays your counts:*
 
-*Status bar (bottom right) shows: `12 words, 80 characters` (example)*
-
-## Install
-
-You can install the extension in two main ways:
-
-- Install from VSIX (local file):
-
-```bash
-## After you run `npx @vscode/vsce package`, the VSIX will be created in the project root
-code --install-extension ./word-and-character-count-0.0.1.vsix
+```text
+📝 12 words, 80 characters
 ```
 
-- Install from the Marketplace: publish the extension and install it normally from the VS Code extensions view.
+Simply hover over the status bar item for additional context!
 
-## Usage
+---
 
-1. Launch VS Code (or the Extension Development Host during development using F5).
-2. Open any text file.
-3. Look at the bottom-right status bar for the counts. If you select text, the status bar shows counts only for the selection.
+## 🎯 Perfect For
 
-The extension activates on file open or on common languages (plaintext, markdown, javascript, typescript, python, etc.).
+- **✍️ Writers** - Track your progress on articles, documentation, or creative writing
+- **📚 Students** - Meet essay requirements and assignment word counts
+- **💼 Professionals** - Stay within character limits for social media, emails, or reports
+- **👨‍💻 Developers** - Monitor code comments, commit messages, and documentation
+- **🌐 Content Creators** - Optimize content length for SEO and readability
 
+---
 
-## Internationalization (i18n)
+## 🚀 Getting Started
 
-The extension supports the following languages (auto-detected from your VS Code UI):
+1. **Install** the extension from the VS Code Marketplace
+2. **Open** any text file (Markdown, JavaScript, Python, plain text, etc.)
+3. **Look** at the bottom-right status bar — you'll see your counts instantly!
 
-- English (`en`)
-- Spanish (`es`)
-- Portuguese (`pt`, `pt-br`)
-- French (`fr`)
-- German (`de`)
-- Italian (`it`)
-- Dutch (`nl`)
-- Polish (`pl`)
-- Czech (`cs`)
-- Turkish (`tr`)
-- Russian (`ru`)
-- Ukrainian (`uk`)
-- Bulgarian (`bg`)
-- Greek (`el`)
+### 📝 Using It
 
-To add or improve a translation:
-1. Edit `src/i18n.ts` and add/update the translation strings for your language.
-2. Optionally add `package.nls.<lang>.json` for package metadata.
+- **Whole Document**: Just open a file — counts appear automatically
+- **Selected Text**: Highlight any text — counts update to show only the selection
+- **Live Updates**: Type away — counts refresh in real-time as you write
 
-**Notes:**
-- The status bar text uses pluralization ("1 word" vs "2 words") handled by the helper in `src/i18n.ts`.
-- All i18n logic is covered by automated tests for every supported language.
+---
 
-## Telemetry and API proposals
+## 🌍 Speaks Your Language
 
-This extension does **not** use VS Code telemetry. All tests and i18n logic are implemented without requiring the telemetry API proposal, so you will not see related errors when running or pushing.
+The extension automatically adapts to your VS Code language settings with **linguistically accurate pluralization** following CLDR (Common Locale Data Repository) standards.
 
-## Development
+**🌎 Americas & Europe:**
 
-Prerequisites:
+- English, Spanish, Portuguese (Brazil & Portugal), French, German, Italian, Dutch
 
-- Node.js (recommended v18+)
-- npm
+**🌍 Eastern Europe & Middle East:**
 
-Install dependencies and build:
+- Polish, Czech, Turkish, Russian, Ukrainian, Bulgarian, Greek
+
+### Advanced Pluralization
+
+Unlike simple extensions that only handle singular/plural, we implement proper CLDR plural rules:
+
+- **Slavic Languages** (Russian, Ukrainian, Polish): Use one/few/many forms
+  - *Russian*: 1 символ, 2 символа, 5 символов, 21 символ
+  - *Polish*: 1 znak, 2 znaki, 5 znaków
+  - *Czech*: 1 slovo, 2 slova, 5 slov
+
+- **Portuguese Variants**: Proper "zero" handling
+  - *PT-BR*: 0 palavra (singular, normative preference)
+  - *PT-PT*: 0 palavras (plural, standard grammar)
+
+- **French**: Zero and one both use singular form
+  - *French*: 0 mot, 1 mot, 2 mots
+
+Smart pluralization ensures proper grammar in every language, respecting linguistic nuances and regional preferences.
+
+---
+
+## 🎨 Features You'll Appreciate
+
+### Seamless Integration
+
+Fits naturally into your workflow with a minimal status bar presence. No distracting popups or notifications.
+
+### Zero Configuration
+
+Works perfectly out of the box. No settings to configure, no commands to remember.
+
+### Lightning Fast
+
+Built with performance in mind — counts update instantly without slowing down your editor.
+
+### Universal Compatibility
+
+Works with any file type that contains text. Markdown, code, JSON, logs — if you can type it, we can count it.
+
+---
+
+## ⚙️ For Developers
+
+### Building from Source
 
 ```bash
+# Clone the repository
+git clone https://github.com/jjunho/count-words.git
+cd count-words
+
+# Install dependencies
 npm install
-npm run compile       # run webpack once
-npm run watch         # run webpack in watch mode during development
-```
 
-Run the extension in the Extension Development Host:
+# Compile and watch for changes
+npm run watch
 
-1. Open the project in VS Code.
-2. Press `F5` to launch a new Extension Development Host window with the extension loaded.
-
-Lint and tests:
-
-```bash
-npm run lint
+# Run tests
 npm test
+
+# Package the extension
+npx @vscode/vsce package
 ```
 
-## Packaging & publishing
+### Project Structure
 
-Create a VSIX package locally using the official packaging tool:
+- `src/extension.ts` - Main extension logic and status bar integration
+- `src/i18n.ts` - CLDR-compliant internationalization with 14+ language translations and plural rules
+- `src/test/` - Comprehensive test suite covering all languages and plural categories
+- `package.json` - Extension manifest and dependencies
+- `webpack.config.js` - Build configuration
 
-```bash
-npx @vscode/vsce package --allow-star-activation
-```
+### Contributing
 
-This will create a file like `word-and-character-count-0.0.1.vsix` in the project root. Install it locally with `code --install-extension`.
+We welcome contributions! Here's how you can help:
 
-To publish to the Visual Studio Marketplace, follow the official publishing guide (you'll need a publisher, a Personal Access Token (PAT) and the `vsce` or `@vscode/vsce` tool). Example:
+1. **🐛 Report bugs** - Open an issue with details and reproduction steps
+2. **💡 Suggest features** - Share your ideas for improvements
+3. **🌍 Add translations** - Help us support more languages (see `src/i18n.ts`)
+4. **🔧 Submit PRs** - Fork the repo, make changes, and submit a pull request
 
-```bash
-# login and publish (example)
-npx @vscode/vsce login <publisher-name>
-npx @vscode/vsce publish
-```
+**Adding a new language:**
 
-See the VS Code extension publishing docs for a step-by-step guide.
+1. Add CLDR plural category function in `src/i18n.ts` (getPluralCategory)
+2. Add translation strings with proper plural forms (one, few, many, other)
+3. Add comprehensive tests covering 0, 1, 2, 5, and 21 (to test cycling)
+4. Ensure all tests pass with `npm test`
 
-## Contributing
+Please ensure your code passes all tests (`npm test`) and follows the existing code style.
 
-Contributions are welcome. A suggested workflow:
+---
 
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feat/my-feature`.
-3. Make changes, include tests where appropriate.
-4. Run the test suite and linting.
-5. Open a pull request describing the change.
+## 📋 What's New
 
-Please follow the existing code style (TypeScript + ESLint) and keep changes small and focused.
+### Version 0.0.3 (Upcoming)
 
-## License
+- 🌍 **CLDR-Compliant Pluralization** - Implemented proper Unicode CLDR plural rules
+- 🇷🇺 **Advanced Slavic Support** - Correct one/few/many forms for Russian, Ukrainian, Polish, Czech
+- 🇧🇷🇵🇹 **Regional Portuguese Variants** - Proper "zero" handling (singular in BR, plural in PT)
+- 🇫🇷 **French Zero Support** - Both 0 and 1 use singular form
+- ✅ **Comprehensive Testing** - Full coverage for all plural categories and edge cases
+- 📚 **Linguistic Accuracy** - Grammatically correct in all 14+ supported languages
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+### Version 0.0.2
 
-## Changelog
+- ✨ Added support for 14+ languages with automatic detection
+- ✅ Comprehensive test coverage for all supported languages
+- 🔧 Improved code quality and extension structure
+- 🌍 Smart pluralization for better grammar in every language
 
-See [CHANGELOG.md](CHANGELOG.md) for release notes and version history.
+### Version 0.0.1
 
-## Acknowledgements
+- 🎉 Initial release with core word and character counting
+- 📊 Real-time status bar display
+- 🔄 Support for document and selection counting
 
-- Generated initially with `yo code` (VS Code Extension Generator).
+[View Full Changelog](CHANGELOG.md)
+
+---
+
+## 📖 FAQ
+
+**Q: Does this work with code files?**  
+A: Yes! It works with any text-based file including code, markdown, JSON, logs, and more.
+
+**Q: Can I count only selected text?**  
+A: Absolutely. Just select any text and the status bar updates to show counts for your selection only.
+
+**Q: Does it slow down VS Code?**  
+A: No. The extension is extremely lightweight and has zero noticeable impact on performance.
+
+**Q: Can I customize what's displayed?**  
+A: Currently, the extension displays both word and character counts. Customization options may come in future versions.
+
+**Q: What about different alphabets (Cyrillic, Greek, etc.)?**  
+A: The extension correctly counts words and characters in all languages, including non-Latin alphabets.
+
+---
+
+## 📄 License
+
+This extension is licensed under the [MIT License](LICENSE). Free to use, modify, and distribute.
+
+---
+
+## 🙏 Support & Feedback
+
+- **⭐ Enjoying the extension?** Please rate it on the marketplace and share with friends!
+- **🐛 Found a bug?** [Open an issue](https://github.com/jjunho/count-words/issues)
+- **💬 Have questions?** [Start a discussion](https://github.com/jjunho/count-words/discussions)
+
+---
+
+Made with ❤️ for writers, developers, and everyone who counts words

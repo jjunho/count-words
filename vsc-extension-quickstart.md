@@ -1,48 +1,202 @@
-# Welcome to your VS Code Extension
+# Word & Character Count Extension - Quick Start
 
-## What's in the folder
+## What This Extension Does
 
-* This folder contains all of the files necessary for your extension.
-* `package.json` - this is the manifest file in which you declare your extension and command.
-  * The sample plugin registers a command and defines its title and command name. With this information VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
-* `src/extension.ts` - this is the main file where you will provide the implementation of your command.
-  * The file exports one function, `activate`, which is called the very first time your extension is activated (in this case by executing the command). Inside the `activate` function we call `registerCommand`.
-  * We pass the function containing the implementation of the command as the second parameter to `registerCommand`.
+This VS Code extension provides real-time word and character counting with **CLDR-compliant internationalization** supporting 14+ languages with grammatically correct pluralization.
 
-## Setup
+## Key Features
 
-* install the recommended extensions (amodio.tsl-problem-matcher, ms-vscode.extension-test-runner, and dbaeumer.vscode-eslint)
+- **Real-time counting** in the status bar
+- **CLDR-compliant pluralization** for linguistic accuracy
+- **Advanced Slavic language support** (Russian, Ukrainian, Polish, Czech)
+- **Regional variant support** (PT-BR vs PT-PT for "zero" handling)
+- **14+ languages** with automatic detection
+
+## Folder Structure
+
+* `package.json` - Extension manifest with metadata and activation events
+* `src/extension.ts` - Main extension code with status bar integration
+* `src/i18n.ts` - CLDR-compliant internationalization system with plural rules
+* `src/test/extension.test.ts` - Comprehensive test suite (17 tests covering all languages)
+* `webpack.config.js` - Build configuration for production bundling
+
+## Development Setup
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm
+- VS Code
+
+### Install Dependencies
+
+```bash
+npm install
+```
 
 
-## Get up and running straight away
+```bash
+npm install
+```
 
-* Press `F5` to open a new window with your extension loaded.
-* Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
-* Set breakpoints in your code inside `src/extension.ts` to debug your extension.
-* Find output from your extension in the debug console.
+### Development Workflow
 
-## Make changes
+1. **Compile once**:
+   ```bash
+   npm run compile
+   ```
 
-* You can relaunch the extension from the debug toolbar after changing code in `src/extension.ts`.
-* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+2. **Watch mode** (auto-recompile on changes):
+   ```bash
+   npm run watch
+   ```
 
+3. **Run tests**:
+   ```bash
+   npm test
+   ```
 
-## Explore the API
+4. **Lint code**:
+   ```bash
+   npm run lint
+   ```
 
-* You can open the full set of our API when you open the file `node_modules/@types/vscode/index.d.ts`.
+## Testing the Extension
 
-## Run tests
+1. Open this project in VS Code
+2. Press `F5` to launch Extension Development Host
+3. Open any text file
+4. Look at the status bar (bottom right) for the word/character count
+5. Select text to see counts update for the selection only
 
-* Install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
-* Run the "watch" task via the **Tasks: Run Task** command. Make sure this is running, or tests might not be discovered.
-* Open the Testing view from the activity bar and click the Run Test" button, or use the hotkey `Ctrl/Cmd + ; A`
-* See the output of the test result in the Test Results view.
-* Make changes to `src/test/extension.test.ts` or create new test files inside the `test` folder.
-  * The provided test runner will only consider files matching the name pattern `**.test.ts`.
-  * You can create folders inside the `test` folder to structure your tests any way you want.
+## Understanding the Internationalization System
 
-## Go further
+### CLDR Plural Categories
 
-* Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension).
-* [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VS Code extension marketplace.
-* Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
+The extension uses Unicode CLDR plural rules with 6 categories:
+
+- `one` - Singular (1 item)
+- `few` - A few items (2-4 in Slavic languages)
+- `many` - Many items (5+ in Slavic languages)
+- `two` - Dual form (Slovenian)
+- `zero` - Zero items (some languages)
+- `other` - Default fallback
+
+### Examples by Language
+
+**English** (simple: one/other)
+- 0 words, 1 word, 2 words
+
+**Russian** (complex: one/few/many)
+- 1 символ (one), 2 символа (few), 5 символов (many)
+
+**Polish** (complex: one/few/many)
+- 1 znak (one), 2 znaki (few), 5 znaków (many)
+
+**Portuguese BR** (zero is singular)
+- 0 palavra, 1 palavra, 2 palavras
+
+**Portuguese PT** (zero is plural)
+- 0 palavras, 1 palavra, 2 palavras
+
+### Adding a New Language
+
+1. Add plural category logic in `src/i18n.ts`:
+   ```typescript
+   case 'xx': // your language code
+     if (n === 1) return 'one';
+     return 'other';
+   ```
+
+2. Add translations:
+   ```typescript
+   'xx': {
+     word: { one: 'singular', other: 'plural' },
+     character: { one: 'singular', other: 'plural' },
+     tooltip: 'Your tooltip text'
+   }
+   ```
+
+3. Add tests in `src/test/extension.test.ts`
+
+4. Run tests: `npm test`
+
+## Building for Production
+
+```bash
+npm run package
+```
+
+This creates an optimized bundle with webpack.
+
+## Packaging for Distribution
+
+```bash
+npx @vscode/vsce package
+```
+
+Creates a `.vsix` file you can install or publish.
+
+## Publishing
+
+1. Get a Personal Access Token from Azure DevOps
+2. Create a publisher account
+3. Publish:
+   ```bash
+   npx @vscode/vsce publish
+   ```
+
+## Architecture Notes
+
+### Extension Activation
+
+The extension activates on `onStartupFinished` (runs when VS Code fully loads).
+
+### Status Bar Updates
+
+Updates happen on:
+- Active editor change
+- Text selection change  
+- Document content change
+
+### Performance
+
+- Lightweight regex-based word counting
+- No performance impact on large files
+- Debouncing not needed due to fast execution
+
+## Testing Strategy
+
+Tests cover:
+- All 14+ supported languages
+- Edge cases: 0, 1, 2, 5, 21 (to test cycling in Slavic languages)
+- All plural categories (one, few, many, other)
+- Fallback to English for unknown languages
+- Tooltip translations
+
+## Resources
+
+- [VS Code Extension API](https://code.visualstudio.com/api)
+- [CLDR Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
+- [Publishing Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
+
+## Troubleshooting
+
+**Tests failing?**
+- Ensure you've run `npm run compile` first
+- Check that test expectations match CLDR rules
+
+**Linting errors?**
+- Run `npm run lint` to see issues
+- ESLint requires curly braces for if statements
+
+**Webpack errors?**
+- Delete `dist/` and `out/` folders
+- Run `npm run compile` again
+
+## Next Steps
+
+- Add more languages
+- Add configuration options
+- Implement custom word counting rules
+- Add keyboard shortcuts

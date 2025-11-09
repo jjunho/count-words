@@ -28,8 +28,8 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	const charCount = text.length;
 	const wordCount = (text.match(/\b\w+\b/g) || []).length;
-	const wordLabel = t('words', wordCount);
-	const charLabel = t('characters', charCount);
+	const wordLabel = t('word', wordCount);
+	const charLabel = t('character', charCount);
 	statusBarItem.text = `$(pencil) ${wordCount} ${wordLabel}, ${charCount} ${charLabel}`;
 	statusBarItem.tooltip = t('tooltip');
 	statusBarItem.show();

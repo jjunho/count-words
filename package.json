@@ -2,12 +2,13 @@
   "name": "word-and-character-count",
   "displayName": "%displayName%",
   "description": "%description%",
+  "publisher": "jjunho",
   "repository": {
     "type": "git",
     "url": "https://github.com/jjunho/count-words.git"
   },
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.104.0"
   },
@@ -15,24 +16,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:plaintext",
-    "onLanguage:markdown",
-    "onLanguage:json",
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "onLanguage:python",
-    "onStartupFinished",
-    "*"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "word-and-character-count.helloWorld",
-        "title": "%command.helloWorld%"
-      }
-    ]
-  },
+  "contributes": {},
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",

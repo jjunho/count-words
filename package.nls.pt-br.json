@@ -1,5 +1,4 @@
 {
-    "displayName": "Contador de Palavras e Caracteres",
-    "description": "Conta palavras e caracteres do texto inteiro ou da seleção, exibindo no rodapé.",
-    "command.helloWorld": "Olá Mundo"
+    "displayName": "Word and Character Count",
+    "description": "Counts words and characters in the whole text or selection, displaying in the status bar."
 }
