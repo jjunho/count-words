@@ -40,6 +40,9 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.onDidChangeTextEditorSelection(updateStatusBar),
 		vscode.workspace.onDidChangeTextDocument(updateStatusBar)
 	);
+	context.subscriptions.push(
+		vscode.commands.registerCommand('word-and-character-count.refreshCount', updateStatusBar)
+	);
 
 	updateStatusBar();
 }

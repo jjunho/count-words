@@ -12,6 +12,11 @@ suite('Extension Test Suite', () => {
 		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
 		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
 	});
+
+	test('registers the refresh command', async () => {
+		// Protects the Marketplace-contributed command from becoming metadata-only.
+		await vscode.commands.executeCommand('word-and-character-count.refreshCount');
+	});
 });
 
 import { t } from '../i18n';
