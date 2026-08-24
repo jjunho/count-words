@@ -8,6 +8,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### New Features
 
+- Added Marketplace metadata for discovery, including the Productivity category, search keywords, repository links, and gallery presentation.
+- Added the `Word & Character Count: Refresh Count` Command Palette contribution.
+- Added an original 128×128 PNG extension icon.
+- Added `SUPPORT.md` with issue-reporting guidance and the repository issue tracker link.
 - CLDR-compliant plural rules for all supported languages
 - Proper handling of Slavic language pluralization (one/few/many categories)
 - Correct "zero" handling: plural in European Portuguese, singular in Brazilian Portuguese
@@ -42,8 +46,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Internationalization (i18n) support for English and Brazilian Portuguese.
 - Pluralization for word/character labels.
 - Support for multiple file types (plaintext, markdown, code, etc.).
-- Packaging and publishing instructions in README.
+- Marketplace-ready packaging instructions in README.
 - MIT license and repository metadata.
-- Improved README for GitHub and Marketplace publication.
+- Improved README for GitHub and Marketplace readiness.
 - TypeScript/webpack build configuration.
 

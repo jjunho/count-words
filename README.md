@@ -2,7 +2,9 @@
 
 > **Never lose track of your writing progress again.** Get instant, real-time word and character counts right in your VS Code status bar.
 
-[![Version](https://img.shields.io/badge/version-0.0.2-blue.svg)](https://github.com/jjunho/count-words)
+This repository is ready for local VSIX packaging and is not published to the VS Code Marketplace.
+
+[![Version](https://img.shields.io/badge/version-0.0.3-blue.svg)](https://github.com/jjunho/count-words)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
@@ -46,7 +48,7 @@ Simply hover over the status bar item for additional context!
 
 ## 🚀 Getting Started
 
-1. **Install** the extension from the VS Code Marketplace
+1. **Install** the extension from a VSIX package or your local development build.
 2. **Open** any text file (Markdown, JavaScript, Python, plain text, etc.)
 3. **Look** at the bottom-right status bar — you'll see your counts instantly!
 
@@ -55,6 +57,10 @@ Simply hover over the status bar item for additional context!
 - **Whole Document**: Just open a file — counts appear automatically
 - **Selected Text**: Highlight any text — counts update to show only the selection
 - **Live Updates**: Type away — counts refresh in real-time as you write
+
+### ⌘ Command Palette
+
+Open the Command Palette (`Ctrl+Shift+P` on Windows/Linux or `Cmd+Shift+P` on macOS) and run **Word & Character Count: Refresh Count** to refresh the counts for the active document or selection.
 
 ---
 
@@ -98,7 +104,7 @@ Fits naturally into your workflow with a minimal status bar presence. No distrac
 
 ### Zero Configuration
 
-Works perfectly out of the box. No settings to configure, no commands to remember.
+Works perfectly out of the box. No settings to configure; use the optional refresh command when needed.
 
 ### Lightning Fast
 
@@ -215,8 +221,7 @@ This extension is licensed under the [MIT License](LICENSE). Free to use, modify
 
 ## 🙏 Support & Feedback
 
-- **⭐ Enjoying the extension?** Please rate it on the marketplace and share with friends!
-- **🐛 Found a bug?** [Open an issue](https://github.com/jjunho/count-words/issues)
+- **🐛 Found a bug or need help?** See [SUPPORT.md](SUPPORT.md) for reporting guidance and the issue tracker.
 - **💬 Have questions?** [Start a discussion](https://github.com/jjunho/count-words/discussions)
 
 ---

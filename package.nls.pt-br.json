@@ -1,4 +1,4 @@
 {
     "displayName": "Word and Character Count",
-    "description": "Counts words and characters in the whole text or selection, displaying in the status bar."
+    "description": "Contagem em tempo real de palavras e caracteres no documento ou na seleção atual."
 }
