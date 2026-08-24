@@ -15,6 +15,9 @@ suite('Extension Test Suite', () => {
 
 	test('registers the refresh command', async () => {
 		// Protects the Marketplace-contributed command from becoming metadata-only.
+		const ext = vscode.extensions.getExtension('jjunho.word-and-character-count');
+		assert.ok(ext, 'Expected extension jjunho.word-and-character-count to be installed in the test host');
+		await ext.activate();
 		await vscode.commands.executeCommand('word-and-character-count.refreshCount');
 	});
 });
