@@ -58,10 +58,6 @@ Simply hover over the status bar item for additional context!
 - **Selected Text**: Highlight any text — counts update to show only the selection
 - **Live Updates**: Type away — counts refresh in real-time as you write
 
-### ⌘ Command Palette
-
-Open the Command Palette (`Ctrl+Shift+P` on Windows/Linux or `Cmd+Shift+P` on macOS) and run **Word & Character Count: Refresh Count** to refresh the counts for the active document or selection.
-
 ---
 
 ## 🌍 Speaks Your Language
@@ -104,7 +100,7 @@ Fits naturally into your workflow with a minimal status bar presence. No distrac
 
 ### Zero Configuration
 
-Works perfectly out of the box. No settings to configure; use the optional refresh command when needed.
+Works perfectly out of the box. No settings to configure.
 
 ### Lightning Fast
 
