@@ -13,13 +13,20 @@
     "vscode": "^1.104.0"
   },
   "categories": [
-    "Other"
+    "Productivity"
   ],
   "activationEvents": [
     "onStartupFinished"
   ],
   "main": "./dist/extension.js",
-  "contributes": {},
+  "contributes": {
+    "commands": [
+      {
+        "command": "word-and-character-count.refreshCount",
+        "title": "Word & Character Count: Refresh Count"
+      }
+    ]
+  },
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
@@ -44,5 +51,20 @@
     "webpack-cli": "^6.0.1",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2"
+  },
+  "keywords": [
+    "word count",
+    "character count",
+    "writing",
+    "statistics"
+  ],
+  "bugs": {
+    "url": "https://github.com/jjunho/count-words/issues"
+  },
+  "homepage": "https://github.com/jjunho/count-words#readme",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1f2937",
+    "theme": "vs-dark"
   }
 }
