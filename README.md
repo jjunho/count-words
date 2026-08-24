@@ -57,6 +57,7 @@ Simply hover over the status bar item for additional context!
 - **Whole Document**: Just open a file — counts appear automatically
 - **Selected Text**: Highlight any text — counts update to show only the selection
 - **Live Updates**: Type away — counts refresh in real-time as you write
+- **Manual Refresh**: Run `Word & Character Count: Refresh Count` from the Command Palette to refresh the counts.
 
 ---
 
